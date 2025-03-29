@@ -67,6 +67,6 @@ This project is being developed according to a 7-week timeline:
 
 This is a personal project in active development. Contributions, suggestions, and feedback are welcome!
 
-## License
+## CC
 
-[MIT License](LICENSE)
+All Rights Reserved to Alon Bril only!
