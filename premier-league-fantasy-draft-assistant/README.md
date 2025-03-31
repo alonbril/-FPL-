@@ -70,3 +70,12 @@ This is a personal project in active development. Contributions, suggestions, an
 ## License
 
 [MIT License](LICENSE)
+
+## Data Sources
+
+This project collects data from multiple sources:
+
+- **Official Fantasy Premier League API**: Player data, fixtures, and fantasy metrics
+- **Understat**: Advanced statistics (xG, xA, etc.)
+
+See the `/docs` directory for detailed information on data collection.
