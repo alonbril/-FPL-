@@ -162,6 +162,49 @@ class FPLApiClient:
 
         return df
 
+    def get_fixtures(self) -> List[Dict[str, Any]]:
+        """
+        Fetch all fixture data for the current season.
+
+        Returns:
+            List of fixture dictionaries
+        """
+        endpoint = f"{self.BASE_URL}/fixtures/"
+
+        try:
+            response = requests.get(endpoint)
+            response.raise_for_status()
+            data = response.json()
+
+            logger.info(f"Successfully fetched {len(data)} fixtures")
+            return data
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Error fetching fixtures: {e}")
+            return []
+
+    def get_gameweek_data(self, gameweek: int) -> Dict[str, Any]:
+        """
+        Fetch data for a specific gameweek.
+
+        Args:
+            gameweek: Gameweek number
+
+        Returns:
+            Dictionary with gameweek data
+        """
+        endpoint = f"{self.BASE_URL}/event/{gameweek}/live/"
+
+        try:
+            response = requests.get(endpoint)
+            response.raise_for_status()
+            data = response.json()
+
+            logger.info(f"Successfully fetched data for gameweek {gameweek}")
+            return data
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Error fetching gameweek data: {e}")
+            return {}
+
 
 # Example usage
 async def example_usage():
