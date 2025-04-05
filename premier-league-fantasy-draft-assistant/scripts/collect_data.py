@@ -17,8 +17,7 @@ Options:
     --news               Update news and injury data only
     --db-path=<path>     Specify database path (default: data/db/fantasy.db)
 """
-import os
-import sys
+
 import logging
 import argparse
 import time
@@ -27,13 +26,21 @@ import pandas as pd
 import aiohttp
 import asyncio
 
+import os
+import sys
 
-# Add the project root directory to the Python path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Get the absolute path of the script
+script_path = os.path.abspath(__file__)
+# Get the directory containing the script
+script_dir = os.path.dirname(script_path)
+# Get the project root directory (parent directory of scripts folder)
+project_root = os.path.dirname(script_dir)
+# Add the project root to Python path
+sys.path.append(project_root)
 
-# Import project modules
-
-# Import project modules
+# Now import the modules
+from src.data.collectors.fpl_api import FPLApiClient
+# rest of your imports...
 from src.data.collectors.fpl_api import FPLApiClient
 from src.data.collectors.understat_api import UnderstatClient
 from src.data.collectors.news_collector import NewsCollector
